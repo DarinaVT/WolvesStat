@@ -1,0 +1,125 @@
+body {
+    font-family: Chiron GoRound TC;
+    background-color: #FF4181;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../../media/images/background.png");
+    background-repeat: repeat;
+    opacity: 0.4;
+    z-index: -1;
+}
+
+*::selection{
+    color: white;
+    background-color: #FF4181;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*on-load effect*/
+.images-home-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}   
+
+.images-home-page img{
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fadeInUp 0.9s ease forwards;
+}
+
+
+#logo-image{
+    width: 250px;
+    height: auto;
+    object-fit: contain;
+}
+
+#logo-text{
+    width: 520px;
+    height: auto;
+    margin-top: -50px;
+}
+
+@keyframes fadeInUp {
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*after-load effect*/
+.images-home-page.shrink{
+    transform: translateY(-110px) scale(0.85);
+}
+
+/*buttons*/
+.base-pages{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    opacity: 0;
+    transform: translateY(15px);
+    pointer-events: none;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.base-pages a,
+.base-pages a:visited,
+.base-pages a:link{
+    color: white;
+    width: 100px;
+    background-color: #1c1c3d;
+    border-radius: 20px;
+    padding: 17px 29px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.base-pages a:hover{
+    background-color: white;
+    transform: scale(1.1);
+    color:#1c1c3d;
+}
+/*menu items showing up*/
+.base-pages.show{
+    opacity: 1;
+    transform: translateY(-100px);
+    pointer-events: auto;
+}
+
+footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #1c1c3d;
+    height: 50px;
+    align-items: center;
+}
+
+footer p{
+    text-align: center;
+    color: white;
+}
